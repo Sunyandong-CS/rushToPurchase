@@ -7,14 +7,51 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CFFC17DA1FB3005F008D853E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFC17D91FB3005F008D853E /* AppDelegate.m */; };
-		CFFC17DD1FB3005F008D853E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFC17DC1FB3005F008D853E /* ViewController.m */; };
-		CFFC17E01FB3005F008D853E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFFC17DE1FB3005F008D853E /* Main.storyboard */; };
-		CFFC17E21FB3005F008D853E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFFC17E11FB3005F008D853E /* Assets.xcassets */; };
+		CAD010228DF13E9C5A73A534 /* libPods-myShop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E0A9A188C28A5BED283E3FC /* libPods-myShop.a */; };
+		CF179AA41FBC734200F713DA /* GoodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF179AA21FBC734200F713DA /* GoodsViewController.m */; };
+		CF179AA51FBC734200F713DA /* GoodsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF179AA31FBC734200F713DA /* GoodsViewController.xib */; };
+		CF179AA81FBC809A00F713DA /* GoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CF179AA71FBC809A00F713DA /* GoodsModel.m */; };
+		CF179AA91FBD2F1300F713DA /* GoodsModel.h in Sources */ = {isa = PBXBuildFile; fileRef = CF179AA61FBC809A00F713DA /* GoodsModel.h */; };
+		CF179AB11FBD37E900F713DA /* GoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF179AAF1FBD37E900F713DA /* GoodsDetailViewController.m */; };
+		CF179AB21FBD37E900F713DA /* GoodsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF179AB01FBD37E900F713DA /* GoodsDetailViewController.xib */; };
+		CF179AB61FC0699200F713DA /* GoodsDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF179AB41FC0699200F713DA /* GoodsDetailCell.m */; };
+		CF179AB71FC0699200F713DA /* GoodsDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF179AB51FC0699200F713DA /* GoodsDetailCell.xib */; };
+		CF179ABB1FC14E3600F713DA /* GoodsPictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF179AB91FC14E3600F713DA /* GoodsPictureCell.m */; };
+		CF179ABC1FC14E3600F713DA /* GoodsPictureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF179ABA1FC14E3600F713DA /* GoodsPictureCell.xib */; };
+		CF179ABF1FC1648000F713DA /* GoodsWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF179ABE1FC1648000F713DA /* GoodsWebViewController.m */; };
+		CF179AC11FC1B3AD00F713DA /* PreferentialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF179AC01FC1B3AD00F713DA /* PreferentialViewController.xib */; };
+		CF179AC51FC1B59900F713DA /* CategoriesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF179AC31FC1B59900F713DA /* CategoriesCell.m */; };
+		CF179AC61FC1B59900F713DA /* CategoriesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF179AC41FC1B59900F713DA /* CategoriesCell.xib */; };
+		CF179AC91FC3124A00F713DA /* ItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CF179AC81FC3124A00F713DA /* ItemModel.m */; };
+		CF179ACC1FC3235700F713DA /* UserInfoWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF179ACB1FC3235700F713DA /* UserInfoWebViewController.m */; };
+		CF9F37701FBC22F10034B96A /* UIImage+SYDImage.h in Sources */ = {isa = PBXBuildFile; fileRef = CF9F376E1FBC20F30034B96A /* UIImage+SYDImage.h */; };
+		CF9F37711FBC22F10034B96A /* UIImage+SYDImage.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9F376D1FBC20F30034B96A /* UIImage+SYDImage.m */; };
+		CFAA37171FB975C200D0F6C1 /* PictureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAA37161FB975C200D0F6C1 /* PictureModel.m */; };
+		CFAA371B1FB9BC1F00D0F6C1 /* GoodsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAA37191FB9BC1F00D0F6C1 /* GoodsViewCell.m */; };
+		CFAA371C1FB9BC1F00D0F6C1 /* GoodsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFAA371A1FB9BC1F00D0F6C1 /* GoodsViewCell.xib */; };
+		CFAA37221FB9CD2A00D0F6C1 /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAA37211FB9CD2A00D0F6C1 /* MenuView.m */; };
+		CFAA37271FBAC94100D0F6C1 /* SYDButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAA37261FBAC94100D0F6C1 /* SYDButton.m */; };
+		CFAA372A1FBAC9AD00D0F6C1 /* UIView+frame.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAA37281FBAC9AD00D0F6C1 /* UIView+frame.m */; };
+		CFAA372D1FBACBD500D0F6C1 /* CategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAA372C1FBACBD500D0F6C1 /* CategoryModel.m */; };
+		CFAA37311FBB004200D0F6C1 /* TitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAA372F1FBB004200D0F6C1 /* TitleCell.m */; };
+		CFAA37321FBB004200D0F6C1 /* TitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFAA37301FBB004200D0F6C1 /* TitleCell.xib */; };
 		CFFC17E51FB3005F008D853E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFFC17E31FB3005F008D853E /* LaunchScreen.storyboard */; };
-		CFFC17E81FB3005F008D853E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFC17E71FB3005F008D853E /* main.m */; };
 		CFFC17F21FB3005F008D853E /* myShopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFC17F11FB3005F008D853E /* myShopTests.m */; };
 		CFFC17FD1FB3005F008D853E /* myShopUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFC17FC1FB3005F008D853E /* myShopUITests.m */; };
+		CFFC182D1FB3012B008D853E /* AppDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = CFFC181A1FB3009E008D853E /* AppDelegate.h */; };
+		CFFC182E1FB3012B008D853E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFC181B1FB3009E008D853E /* AppDelegate.m */; };
+		CFFC182F1FB30150008D853E /* HomeViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = CFFC180D1FB3009E008D853E /* HomeViewController.h */; };
+		CFFC18301FB30150008D853E /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFC180E1FB3009E008D853E /* HomeViewController.m */; };
+		CFFC18311FB30159008D853E /* SYDNavgationViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = CFFC18131FB3009E008D853E /* SYDNavgationViewController.h */; };
+		CFFC18321FB30159008D853E /* SYDNavgationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFC18141FB3009E008D853E /* SYDNavgationViewController.m */; };
+		CFFC18331FB30159008D853E /* SYDTabViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = CFFC18151FB3009E008D853E /* SYDTabViewController.h */; };
+		CFFC18341FB30159008D853E /* SYDTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFC18161FB3009E008D853E /* SYDTabViewController.m */; };
+		CFFC18371FB30159008D853E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFC18201FB3009E008D853E /* main.m */; };
+		CFFC18381FB30186008D853E /* PreferentialViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = CFFC18231FB3009E008D853E /* PreferentialViewController.h */; };
+		CFFC18391FB30186008D853E /* PreferentialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFC18241FB3009E008D853E /* PreferentialViewController.m */; };
+		CFFC183A1FB30186008D853E /* UserInfoController.h in Sources */ = {isa = PBXBuildFile; fileRef = CFFC18291FB3009E008D853E /* UserInfoController.h */; };
+		CFFC183B1FB30186008D853E /* UserInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFC182A1FB3009E008D853E /* UserInfoController.m */; };
+		CFFC18411FB434E0008D853E /* SYDConst.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFC18401FB434E0008D853E /* SYDConst.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,22 +72,76 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0CA66433AA366A7455770787 /* Pods-myShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myShop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myShop/Pods-myShop.debug.xcconfig"; sourceTree = "<group>"; };
+		4E0A9A188C28A5BED283E3FC /* libPods-myShop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myShop.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		95E616C077198FAF7DF5EA2F /* Pods-myShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myShop.release.xcconfig"; path = "Pods/Target Support Files/Pods-myShop/Pods-myShop.release.xcconfig"; sourceTree = "<group>"; };
+		CF179AA11FBC734200F713DA /* GoodsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsViewController.h; sourceTree = "<group>"; };
+		CF179AA21FBC734200F713DA /* GoodsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsViewController.m; sourceTree = "<group>"; };
+		CF179AA31FBC734200F713DA /* GoodsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoodsViewController.xib; sourceTree = "<group>"; };
+		CF179AA61FBC809A00F713DA /* GoodsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsModel.h; sourceTree = "<group>"; };
+		CF179AA71FBC809A00F713DA /* GoodsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsModel.m; sourceTree = "<group>"; };
+		CF179AAE1FBD37E900F713DA /* GoodsDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsDetailViewController.h; sourceTree = "<group>"; };
+		CF179AAF1FBD37E900F713DA /* GoodsDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailViewController.m; sourceTree = "<group>"; };
+		CF179AB01FBD37E900F713DA /* GoodsDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoodsDetailViewController.xib; sourceTree = "<group>"; };
+		CF179AB31FC0699200F713DA /* GoodsDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsDetailCell.h; sourceTree = "<group>"; };
+		CF179AB41FC0699200F713DA /* GoodsDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailCell.m; sourceTree = "<group>"; };
+		CF179AB51FC0699200F713DA /* GoodsDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoodsDetailCell.xib; sourceTree = "<group>"; };
+		CF179AB81FC14E3600F713DA /* GoodsPictureCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsPictureCell.h; sourceTree = "<group>"; };
+		CF179AB91FC14E3600F713DA /* GoodsPictureCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsPictureCell.m; sourceTree = "<group>"; };
+		CF179ABA1FC14E3600F713DA /* GoodsPictureCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoodsPictureCell.xib; sourceTree = "<group>"; };
+		CF179ABD1FC1648000F713DA /* GoodsWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsWebViewController.h; sourceTree = "<group>"; };
+		CF179ABE1FC1648000F713DA /* GoodsWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsWebViewController.m; sourceTree = "<group>"; };
+		CF179AC01FC1B3AD00F713DA /* PreferentialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferentialViewController.xib; sourceTree = "<group>"; };
+		CF179AC21FC1B59900F713DA /* CategoriesCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoriesCell.h; sourceTree = "<group>"; };
+		CF179AC31FC1B59900F713DA /* CategoriesCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoriesCell.m; sourceTree = "<group>"; };
+		CF179AC41FC1B59900F713DA /* CategoriesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesCell.xib; sourceTree = "<group>"; };
+		CF179AC71FC3124A00F713DA /* ItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemModel.h; sourceTree = "<group>"; };
+		CF179AC81FC3124A00F713DA /* ItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemModel.m; sourceTree = "<group>"; };
+		CF179ACA1FC3235700F713DA /* UserInfoWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoWebViewController.h; sourceTree = "<group>"; };
+		CF179ACB1FC3235700F713DA /* UserInfoWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoWebViewController.m; sourceTree = "<group>"; };
+		CF9F376D1FBC20F30034B96A /* UIImage+SYDImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIImage+SYDImage.m"; path = "../../../../../baisibudejie/budejie/budejie/Class/Other/UIImage+SYDImage.m"; sourceTree = "<group>"; };
+		CF9F376E1FBC20F30034B96A /* UIImage+SYDImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIImage+SYDImage.h"; path = "../../../../../baisibudejie/budejie/budejie/Class/Other/UIImage+SYDImage.h"; sourceTree = "<group>"; };
+		CF9F37721FBC243B0034B96A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CFAA37151FB975C200D0F6C1 /* PictureModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PictureModel.h; sourceTree = "<group>"; };
+		CFAA37161FB975C200D0F6C1 /* PictureModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PictureModel.m; sourceTree = "<group>"; };
+		CFAA37181FB9BC1F00D0F6C1 /* GoodsViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsViewCell.h; sourceTree = "<group>"; };
+		CFAA37191FB9BC1F00D0F6C1 /* GoodsViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsViewCell.m; sourceTree = "<group>"; };
+		CFAA371A1FB9BC1F00D0F6C1 /* GoodsViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoodsViewCell.xib; sourceTree = "<group>"; };
+		CFAA37201FB9CD2A00D0F6C1 /* MenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
+		CFAA37211FB9CD2A00D0F6C1 /* MenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
+		CFAA37251FBAC94100D0F6C1 /* SYDButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYDButton.h; sourceTree = "<group>"; };
+		CFAA37261FBAC94100D0F6C1 /* SYDButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYDButton.m; sourceTree = "<group>"; };
+		CFAA37281FBAC9AD00D0F6C1 /* UIView+frame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+frame.m"; sourceTree = "<group>"; };
+		CFAA37291FBAC9AD00D0F6C1 /* UIView+frame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+frame.h"; sourceTree = "<group>"; };
+		CFAA372B1FBACBD500D0F6C1 /* CategoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryModel.h; sourceTree = "<group>"; };
+		CFAA372C1FBACBD500D0F6C1 /* CategoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryModel.m; sourceTree = "<group>"; };
+		CFAA372E1FBB004200D0F6C1 /* TitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TitleCell.h; sourceTree = "<group>"; };
+		CFAA372F1FBB004200D0F6C1 /* TitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TitleCell.m; sourceTree = "<group>"; };
+		CFAA37301FBB004200D0F6C1 /* TitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleCell.xib; sourceTree = "<group>"; };
 		CFFC17D51FB3005F008D853E /* myShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CFFC17D81FB3005F008D853E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		CFFC17D91FB3005F008D853E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CFFC17DB1FB3005F008D853E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		CFFC17DC1FB3005F008D853E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		CFFC17DF1FB3005F008D853E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CFFC17E11FB3005F008D853E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFFC17E41FB3005F008D853E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CFFC17E61FB3005F008D853E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CFFC17E71FB3005F008D853E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CFFC17ED1FB3005F008D853E /* myShopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myShopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFFC17F11FB3005F008D853E /* myShopTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myShopTests.m; sourceTree = "<group>"; };
 		CFFC17F31FB3005F008D853E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFFC17F81FB3005F008D853E /* myShopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myShopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFFC17FC1FB3005F008D853E /* myShopUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myShopUITests.m; sourceTree = "<group>"; };
 		CFFC17FE1FB3005F008D853E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFFC180D1FB3009E008D853E /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		CFFC180E1FB3009E008D853E /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		CFFC18131FB3009E008D853E /* SYDNavgationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYDNavgationViewController.h; sourceTree = "<group>"; };
+		CFFC18141FB3009E008D853E /* SYDNavgationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYDNavgationViewController.m; sourceTree = "<group>"; };
+		CFFC18151FB3009E008D853E /* SYDTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYDTabViewController.h; sourceTree = "<group>"; };
+		CFFC18161FB3009E008D853E /* SYDTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYDTabViewController.m; sourceTree = "<group>"; };
+		CFFC181A1FB3009E008D853E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CFFC181B1FB3009E008D853E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CFFC18201FB3009E008D853E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CFFC18231FB3009E008D853E /* PreferentialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreferentialViewController.h; sourceTree = "<group>"; };
+		CFFC18241FB3009E008D853E /* PreferentialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreferentialViewController.m; sourceTree = "<group>"; };
+		CFFC18291FB3009E008D853E /* UserInfoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoController.h; sourceTree = "<group>"; };
+		CFFC182A1FB3009E008D853E /* UserInfoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoController.m; sourceTree = "<group>"; };
+		CFFC183F1FB434E0008D853E /* SYDConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SYDConst.h; sourceTree = "<group>"; };
+		CFFC18401FB434E0008D853E /* SYDConst.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYDConst.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAD010228DF13E9C5A73A534 /* libPods-myShop.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +170,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F739B7930EE13AA6F27725E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0CA66433AA366A7455770787 /* Pods-myShop.debug.xcconfig */,
+				95E616C077198FAF7DF5EA2F /* Pods-myShop.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CF179AAA1FBD378600F713DA /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				CF179AAB1FBD378600F713DA /* Controller */,
+				CF179AAC1FBD378600F713DA /* Model */,
+				CF179AAD1FBD378600F713DA /* View */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		CF179AAB1FBD378600F713DA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CF179AAE1FBD37E900F713DA /* GoodsDetailViewController.h */,
+				CF179AAF1FBD37E900F713DA /* GoodsDetailViewController.m */,
+				CF179AB01FBD37E900F713DA /* GoodsDetailViewController.xib */,
+				CF179ABD1FC1648000F713DA /* GoodsWebViewController.h */,
+				CF179ABE1FC1648000F713DA /* GoodsWebViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CF179AAC1FBD378600F713DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CF179AAD1FBD378600F713DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CF179AB31FC0699200F713DA /* GoodsDetailCell.h */,
+				CF179AB41FC0699200F713DA /* GoodsDetailCell.m */,
+				CF179AB51FC0699200F713DA /* GoodsDetailCell.xib */,
+				CF179AB81FC14E3600F713DA /* GoodsPictureCell.h */,
+				CF179AB91FC14E3600F713DA /* GoodsPictureCell.m */,
+				CF179ABA1FC14E3600F713DA /* GoodsPictureCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		CFFC17CC1FB3005F008D853E = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +228,8 @@
 				CFFC17F01FB3005F008D853E /* myShopTests */,
 				CFFC17FB1FB3005F008D853E /* myShopUITests */,
 				CFFC17D61FB3005F008D853E /* Products */,
+				5F739B7930EE13AA6F27725E /* Pods */,
+				FC01F41C28DF6EE5EDC96C3C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,15 +246,10 @@
 		CFFC17D71FB3005F008D853E /* myShop */ = {
 			isa = PBXGroup;
 			children = (
-				CFFC17D81FB3005F008D853E /* AppDelegate.h */,
-				CFFC17D91FB3005F008D853E /* AppDelegate.m */,
-				CFFC17DB1FB3005F008D853E /* ViewController.h */,
-				CFFC17DC1FB3005F008D853E /* ViewController.m */,
-				CFFC17DE1FB3005F008D853E /* Main.storyboard */,
-				CFFC17E11FB3005F008D853E /* Assets.xcassets */,
+				CFFC180A1FB3009E008D853E /* Class */,
 				CFFC17E31FB3005F008D853E /* LaunchScreen.storyboard */,
 				CFFC17E61FB3005F008D853E /* Info.plist */,
-				CFFC17E71FB3005F008D853E /* main.m */,
+				CF9F37721FBC243B0034B96A /* Assets.xcassets */,
 			);
 			path = myShop;
 			sourceTree = "<group>";
@@ -132,6 +272,220 @@
 			path = myShopUITests;
 			sourceTree = "<group>";
 		};
+		CFFC180A1FB3009E008D853E /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				CF179AAA1FBD378600F713DA /* Common */,
+				CFFC180B1FB3009E008D853E /* HomeRecommand */,
+				CFFC18111FB3009E008D853E /* Main */,
+				CFFC18191FB3009E008D853E /* Other */,
+				CFFC18211FB3009E008D853E /* Preferential */,
+				CFFC18271FB3009E008D853E /* UserInfo */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		CFFC180B1FB3009E008D853E /* HomeRecommand */ = {
+			isa = PBXGroup;
+			children = (
+				CFFC180C1FB3009E008D853E /* Controller */,
+				CFFC180F1FB3009E008D853E /* Model */,
+				CFFC18101FB3009E008D853E /* View */,
+			);
+			path = HomeRecommand;
+			sourceTree = "<group>";
+		};
+		CFFC180C1FB3009E008D853E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CFFC180D1FB3009E008D853E /* HomeViewController.h */,
+				CFFC180E1FB3009E008D853E /* HomeViewController.m */,
+				CF179AA11FBC734200F713DA /* GoodsViewController.h */,
+				CF179AA21FBC734200F713DA /* GoodsViewController.m */,
+				CF179AA31FBC734200F713DA /* GoodsViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CFFC180F1FB3009E008D853E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CFAA37151FB975C200D0F6C1 /* PictureModel.h */,
+				CFAA37161FB975C200D0F6C1 /* PictureModel.m */,
+				CFAA372B1FBACBD500D0F6C1 /* CategoryModel.h */,
+				CFAA372C1FBACBD500D0F6C1 /* CategoryModel.m */,
+				CF179AA61FBC809A00F713DA /* GoodsModel.h */,
+				CF179AA71FBC809A00F713DA /* GoodsModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CFFC18101FB3009E008D853E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CFAA37181FB9BC1F00D0F6C1 /* GoodsViewCell.h */,
+				CFAA37191FB9BC1F00D0F6C1 /* GoodsViewCell.m */,
+				CFAA371A1FB9BC1F00D0F6C1 /* GoodsViewCell.xib */,
+				CFAA37201FB9CD2A00D0F6C1 /* MenuView.h */,
+				CFAA37211FB9CD2A00D0F6C1 /* MenuView.m */,
+				CFAA37251FBAC94100D0F6C1 /* SYDButton.h */,
+				CFAA37261FBAC94100D0F6C1 /* SYDButton.m */,
+				CFAA372E1FBB004200D0F6C1 /* TitleCell.h */,
+				CFAA372F1FBB004200D0F6C1 /* TitleCell.m */,
+				CFAA37301FBB004200D0F6C1 /* TitleCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CFFC18111FB3009E008D853E /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				CFFC18121FB3009E008D853E /* Controller */,
+				CFFC18171FB3009E008D853E /* Model */,
+				CFFC18181FB3009E008D853E /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		CFFC18121FB3009E008D853E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CFFC18131FB3009E008D853E /* SYDNavgationViewController.h */,
+				CFFC18141FB3009E008D853E /* SYDNavgationViewController.m */,
+				CFFC18151FB3009E008D853E /* SYDTabViewController.h */,
+				CFFC18161FB3009E008D853E /* SYDTabViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CFFC18171FB3009E008D853E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CFFC18181FB3009E008D853E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CFFC18191FB3009E008D853E /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				CFFC181A1FB3009E008D853E /* AppDelegate.h */,
+				CFFC181B1FB3009E008D853E /* AppDelegate.m */,
+				CFFC181C1FB3009E008D853E /* Category */,
+				CFFC181F1FB3009E008D853E /* Const */,
+				CFFC18201FB3009E008D853E /* main.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		CFFC181C1FB3009E008D853E /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				CF9F376E1FBC20F30034B96A /* UIImage+SYDImage.h */,
+				CF9F376D1FBC20F30034B96A /* UIImage+SYDImage.m */,
+				CFAA37291FBAC9AD00D0F6C1 /* UIView+frame.h */,
+				CFAA37281FBAC9AD00D0F6C1 /* UIView+frame.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		CFFC181F1FB3009E008D853E /* Const */ = {
+			isa = PBXGroup;
+			children = (
+				CFFC183F1FB434E0008D853E /* SYDConst.h */,
+				CFFC18401FB434E0008D853E /* SYDConst.m */,
+			);
+			path = Const;
+			sourceTree = "<group>";
+		};
+		CFFC18211FB3009E008D853E /* Preferential */ = {
+			isa = PBXGroup;
+			children = (
+				CFFC18221FB3009E008D853E /* Controller */,
+				CFFC18251FB3009E008D853E /* Model */,
+				CFFC18261FB3009E008D853E /* View */,
+			);
+			path = Preferential;
+			sourceTree = "<group>";
+		};
+		CFFC18221FB3009E008D853E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CFFC18231FB3009E008D853E /* PreferentialViewController.h */,
+				CFFC18241FB3009E008D853E /* PreferentialViewController.m */,
+				CF179AC01FC1B3AD00F713DA /* PreferentialViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CFFC18251FB3009E008D853E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CFFC18261FB3009E008D853E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CF179AC21FC1B59900F713DA /* CategoriesCell.h */,
+				CF179AC31FC1B59900F713DA /* CategoriesCell.m */,
+				CF179AC41FC1B59900F713DA /* CategoriesCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CFFC18271FB3009E008D853E /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				CFFC18281FB3009E008D853E /* Controller */,
+				CFFC182B1FB3009E008D853E /* Model */,
+				CFFC182C1FB3009E008D853E /* View */,
+			);
+			path = UserInfo;
+			sourceTree = "<group>";
+		};
+		CFFC18281FB3009E008D853E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CFFC18291FB3009E008D853E /* UserInfoController.h */,
+				CFFC182A1FB3009E008D853E /* UserInfoController.m */,
+				CF179ACA1FC3235700F713DA /* UserInfoWebViewController.h */,
+				CF179ACB1FC3235700F713DA /* UserInfoWebViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CFFC182B1FB3009E008D853E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CF179AC71FC3124A00F713DA /* ItemModel.h */,
+				CF179AC81FC3124A00F713DA /* ItemModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CFFC182C1FB3009E008D853E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FC01F41C28DF6EE5EDC96C3C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4E0A9A188C28A5BED283E3FC /* libPods-myShop.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,9 +493,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CFFC18011FB3005F008D853E /* Build configuration list for PBXNativeTarget "myShop" */;
 			buildPhases = (
+				22653D64C04CD14271408647 /* [CP] Check Pods Manifest.lock */,
 				CFFC17D11FB3005F008D853E /* Sources */,
 				CFFC17D21FB3005F008D853E /* Frameworks */,
 				CFFC17D31FB3005F008D853E /* Resources */,
+				ED04FBA974BD723916C702E6 /* [CP] Embed Pods Frameworks */,
+				9E9C8682B335BAB4C838FF11 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -238,9 +595,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFAA37321FBB004200D0F6C1 /* TitleCell.xib in Resources */,
+				CF179ABC1FC14E3600F713DA /* GoodsPictureCell.xib in Resources */,
+				CF179AB21FBD37E900F713DA /* GoodsDetailViewController.xib in Resources */,
+				CFAA371C1FB9BC1F00D0F6C1 /* GoodsViewCell.xib in Resources */,
 				CFFC17E51FB3005F008D853E /* LaunchScreen.storyboard in Resources */,
-				CFFC17E21FB3005F008D853E /* Assets.xcassets in Resources */,
-				CFFC17E01FB3005F008D853E /* Main.storyboard in Resources */,
+				CF179AA51FBC734200F713DA /* GoodsViewController.xib in Resources */,
+				CF179AB71FC0699200F713DA /* GoodsDetailCell.xib in Resources */,
+				CF179AC11FC1B3AD00F713DA /* PreferentialViewController.xib in Resources */,
+				CF179AC61FC1B59900F713DA /* CategoriesCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,14 +623,99 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		22653D64C04CD14271408647 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-myShop-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E9C8682B335BAB4C838FF11 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-myShop/Pods-myShop-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-myShop/Pods-myShop-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED04FBA974BD723916C702E6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-myShop/Pods-myShop-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CFFC17D11FB3005F008D853E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CFFC17DD1FB3005F008D853E /* ViewController.m in Sources */,
-				CFFC17E81FB3005F008D853E /* main.m in Sources */,
-				CFFC17DA1FB3005F008D853E /* AppDelegate.m in Sources */,
+				CF179AA91FBD2F1300F713DA /* GoodsModel.h in Sources */,
+				CF179ABB1FC14E3600F713DA /* GoodsPictureCell.m in Sources */,
+				CF9F37701FBC22F10034B96A /* UIImage+SYDImage.h in Sources */,
+				CF9F37711FBC22F10034B96A /* UIImage+SYDImage.m in Sources */,
+				CFFC18381FB30186008D853E /* PreferentialViewController.h in Sources */,
+				CFAA372D1FBACBD500D0F6C1 /* CategoryModel.m in Sources */,
+				CF179AC91FC3124A00F713DA /* ItemModel.m in Sources */,
+				CF179AA81FBC809A00F713DA /* GoodsModel.m in Sources */,
+				CFFC18391FB30186008D853E /* PreferentialViewController.m in Sources */,
+				CFFC183A1FB30186008D853E /* UserInfoController.h in Sources */,
+				CFFC183B1FB30186008D853E /* UserInfoController.m in Sources */,
+				CF179ABF1FC1648000F713DA /* GoodsWebViewController.m in Sources */,
+				CFFC18311FB30159008D853E /* SYDNavgationViewController.h in Sources */,
+				CFAA37171FB975C200D0F6C1 /* PictureModel.m in Sources */,
+				CFFC18321FB30159008D853E /* SYDNavgationViewController.m in Sources */,
+				CFFC18331FB30159008D853E /* SYDTabViewController.h in Sources */,
+				CFFC18341FB30159008D853E /* SYDTabViewController.m in Sources */,
+				CFFC18371FB30159008D853E /* main.m in Sources */,
+				CFFC182F1FB30150008D853E /* HomeViewController.h in Sources */,
+				CFAA371B1FB9BC1F00D0F6C1 /* GoodsViewCell.m in Sources */,
+				CF179AC51FC1B59900F713DA /* CategoriesCell.m in Sources */,
+				CFAA37271FBAC94100D0F6C1 /* SYDButton.m in Sources */,
+				CFFC18411FB434E0008D853E /* SYDConst.m in Sources */,
+				CFFC18301FB30150008D853E /* HomeViewController.m in Sources */,
+				CFAA37311FBB004200D0F6C1 /* TitleCell.m in Sources */,
+				CF179AA41FBC734200F713DA /* GoodsViewController.m in Sources */,
+				CFFC182D1FB3012B008D853E /* AppDelegate.h in Sources */,
+				CF179AB61FC0699200F713DA /* GoodsDetailCell.m in Sources */,
+				CF179ACC1FC3235700F713DA /* UserInfoWebViewController.m in Sources */,
+				CFAA372A1FBAC9AD00D0F6C1 /* UIView+frame.m in Sources */,
+				CF179AB11FBD37E900F713DA /* GoodsDetailViewController.m in Sources */,
+				CFFC182E1FB3012B008D853E /* AppDelegate.m in Sources */,
+				CFAA37221FB9CD2A00D0F6C1 /* MenuView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,14 +751,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CFFC17DE1FB3005F008D853E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CFFC17DF1FB3005F008D853E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CFFC17E31FB3005F008D853E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -428,28 +868,34 @@
 		};
 		CFFC18021FB3005F008D853E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CA66433AA366A7455770787 /* Pods-myShop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BBKVX2RMVD;
 				INFOPLIST_FILE = myShop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xidian.myShop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		CFFC18031FB3005F008D853E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95E616C077198FAF7DF5EA2F /* Pods-myShop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BBKVX2RMVD;
 				INFOPLIST_FILE = myShop/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xidian.myShop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
