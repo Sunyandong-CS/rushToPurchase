@@ -44,5 +44,9 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>MOBAppKey</key>
+	<string>2283bc679df54</string>
+	<key>MOBAppSecret</key>
+	<string>b07c0d3f8f347807000ed546fab8e1fc</string>
 </dict>
 </plist>

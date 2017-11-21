@@ -18,9 +18,11 @@
     // 设置文字的位置
     self.titleLabel.y = self.height - self.titleLabel.height - 10;
     self.titleLabel.centerX = self.width * 0.5;
-    
+    [self.titleLabel sizeToFit];
     // 设置文字的大小
-    [self.titleLabel setFont:[UIFont systemFontOfSize:14]];
+    // 适配字体大小
+    CGFloat fontSize = [UIScreen mainScreen].bounds.size.width > 320 ? 15 : 10;
+    [self.titleLabel setFont:[UIFont systemFontOfSize:fontSize]];
 }
 
 

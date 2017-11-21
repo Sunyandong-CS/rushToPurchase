@@ -5,7 +5,10 @@
 //  Created by 孙艳东 on 2017/11/8.
 //  Copyright © 2017年 孙艳东. All rights reserved.
 //
-
+/************分享功能*************/
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKUI/ShareSDKUI.h>
+/********************************/
 #import "HomeViewController.h"
 #import "SYDConst.h"
 #import <AFNetworking.h>
@@ -54,7 +57,9 @@ static NSString * const CollectionCellID = @"cell";
 
 - (UIView *)contentV {
     if (_contentV == nil) {
-        _contentV = [[UIView alloc] initWithFrame:CGRectMake(0, NavbarH,ScreenH, CycleScrollViewH + CategoryH)];
+        CGFloat menuH = CategoryH;
+        menuH =  ScreenW > 320 ? CategoryH : CategoryH - 20;
+        _contentV = [[UIView alloc] initWithFrame:CGRectMake(0, NavbarH,ScreenH, CycleScrollViewH + menuH)];
     }
     return _contentV;
 }
@@ -98,8 +103,12 @@ static NSString * const CollectionCellID = @"cell";
     
     
     // 添加Categories部分
-    MenuView *menuView = [[MenuView alloc] initWithFrame:CGRectMake(0, CycleScrollViewH, ScreenW, CategoryH)];
+    CGFloat menuH = CategoryH;
+    menuH =  ScreenW > 320 ? CategoryH : CategoryH - 20;
+    
+    MenuView *menuView = [[MenuView alloc] initWithFrame:CGRectMake(0, CycleScrollViewH, ScreenW, menuH)];
     self.categoriesView = menuView;
+    menuView.autoresizesSubviews = YES;
     menuView.backgroundColor = [UIColor whiteColor];
     
     // 点击按钮跳转页面的Block执行事件
@@ -178,7 +187,50 @@ static NSString * const CollectionCellID = @"cell";
 
 // 顶部分享功能
 - (void)share {
-    NSLog(@"分享功能");
+    
+    //1、创建分享参数
+    NSArray* imageArray = @[@"http://mob.com/Assets/images/logo.png?v=20150320"];
+    if (imageArray) {
+        
+        NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+        [shareParams SSDKSetupShareParamsByText:@"分享内容"
+                                         images:imageArray
+                                            url:[NSURL URLWithString:@"http://mob.com"]
+                                          title:@"分享标题"
+                                           type:SSDKContentTypeAuto];
+        //2、分享（可以弹出我们的分享菜单和编辑界面）
+        [ShareSDK showShareActionSheet:nil //要显示菜单的视图, iPad版中此参数作为弹出菜单的参照视图，只有传这个才可以弹出我们的分享菜单，可以传分享的按钮对象或者自己创建小的view 对象，iPhone可以传nil不会影响
+                                 items:nil
+                           shareParams:shareParams
+                   onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end) {
+                       
+                       switch (state) {
+                           case SSDKResponseStateSuccess:
+                           {
+                               UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功"
+                                                                                   message:nil
+                                                                                  delegate:nil
+                                                                         cancelButtonTitle:@"确定"
+                                                                         otherButtonTitles:nil];
+                               [alertView show];
+                               break;
+                           }
+                           case SSDKResponseStateFail:
+                           {
+                               UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享失败"
+                                                                               message:[NSString stringWithFormat:@"%@",error]
+                                                                              delegate:nil
+                                                                     cancelButtonTitle:@"OK"
+                                                                     otherButtonTitles:nil, nil];
+                               [alert show];
+                               break;
+                           }
+                           default:
+                               break;
+                       }
+                   }];
+    }
+    
 }
 
 #pragma mark 网络请求

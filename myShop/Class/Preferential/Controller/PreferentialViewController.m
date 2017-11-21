@@ -223,7 +223,7 @@ static NSString * const goodsCellId = @"goodsCell";
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat itemW = (ScreenW - self.tableView.frame.size.width) / 2 - SYDCellMargin;
-    CGFloat itemH = itemW + 30;
+    CGFloat itemH = itemW + 40;
     
     return CGSizeMake(itemW, itemH);
 }

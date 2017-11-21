@@ -34,6 +34,8 @@
 }
 
 - (void)layoutSubviews {
+    
+    CGFloat fontSize = [UIScreen mainScreen].bounds.size.width > 320 ? 15 : 12;
 }
 
 - (void)addButton {
@@ -42,9 +44,10 @@
     NSInteger count = 4;
     CGFloat btnMargin = 10;
     CGFloat buttonW = ([UIScreen mainScreen].bounds.size.width - (count + 1) * btnMargin) / count ;
-    CGFloat buttonH = buttonW - btnMargin;
+    CGFloat buttonH = buttonW;
     CGFloat btnY = 0;
     CGFloat BtnX = 0;
+    
     NSArray *iconArr = @[@"xuefang.png",@"jeans.png",@"beixin.png",@"xuefang.png",@"jeans.png",@"beixin.png",@"xuefang.png",@"jeans.png"];
     
     for (NSInteger i = 0;i < self.categoriesArr.count ; i++) {
@@ -56,6 +59,12 @@
         [button setImage:[UIImage syd_circleImage:[UIImage imageNamed:iconArr[i]]] forState:UIControlStateNormal];
         button.imageView.adjustsImageSizeForAccessibilityContentSizeCategory = YES;
         [button setTitle:self.categoriesArr[i].FavoritesTitle forState:UIControlStateNormal];
+        
+        // 适配字体大小
+        CGFloat fontSize = [UIScreen mainScreen].bounds.size.width > 320 ? 15 : 10;
+        // 设置标题字体大小
+        button.titleLabel.font = [UIFont systemFontOfSize:fontSize];
+        
         [button setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
         button.tag = i;
         // 添加点击事件
