@@ -59,7 +59,7 @@ static NSString * const CollectionCellID = @"cell";
     if (_contentV == nil) {
         CGFloat menuH = CategoryH;
         menuH =  ScreenW > 320 ? CategoryH : CategoryH - 20;
-        _contentV = [[UIView alloc] initWithFrame:CGRectMake(0, NavbarH,ScreenH, CycleScrollViewH + menuH)];
+        _contentV = [[UIView alloc] initWithFrame:CGRectMake(0, NavbarH,ScreenW, CycleScrollViewH + menuH)];
     }
     return _contentV;
 }
@@ -277,7 +277,7 @@ static NSString * const CollectionCellID = @"cell";
     // 设置请求参数
     NSMutableDictionary *paramerters = [NSMutableDictionary dictionary];
     paramerters[@"favoritesId"] = @"2056439";
-    paramerters[@"pageNo"] = @"1";
+    paramerters[@"pageNo"] = [NSString stringWithFormat:@"%li",(long)self.pageNo];
     paramerters[@"pageSize"] = @"20";
     
     // 发送请求
@@ -357,9 +357,9 @@ static NSString * const CollectionCellID = @"cell";
     
     return 40;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return CycleScrollViewH + CategoryH;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+//    return CycleScrollViewH + CategoryH;
+//}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     TitleCell *cell = [self.tableView dequeueReusableCellWithIdentifier:TableCellId forIndexPath:indexPath];

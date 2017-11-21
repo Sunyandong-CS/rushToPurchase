@@ -34,8 +34,7 @@
 }
 
 - (void)layoutSubviews {
-    
-    CGFloat fontSize = [UIScreen mainScreen].bounds.size.width > 320 ? 15 : 12;
+
 }
 
 - (void)addButton {
@@ -57,7 +56,7 @@
         SYDButton *button = [SYDButton buttonWithType:UIButtonTypeCustom];
         
         [button setImage:[UIImage syd_circleImage:[UIImage imageNamed:iconArr[i]]] forState:UIControlStateNormal];
-        button.imageView.adjustsImageSizeForAccessibilityContentSizeCategory = YES;
+        
         [button setTitle:self.categoriesArr[i].FavoritesTitle forState:UIControlStateNormal];
         
         // 适配字体大小

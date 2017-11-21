@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CAD010228DF13E9C5A73A534 /* libPods-myShop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E0A9A188C28A5BED283E3FC /* libPods-myShop.a */; };
+		CAD010228DF13E9C5A73A534 /* libPods-myShop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E0A9A188C28A5BED283E3FC /* libPods-myShop.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		CF179AA41FBC734200F713DA /* GoodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF179AA21FBC734200F713DA /* GoodsViewController.m */; };
 		CF179AA51FBC734200F713DA /* GoodsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF179AA31FBC734200F713DA /* GoodsViewController.xib */; };
 		CF179AA81FBC809A00F713DA /* GoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CF179AA71FBC809A00F713DA /* GoodsModel.m */; };
@@ -24,6 +24,7 @@
 		CF179AC61FC1B59900F713DA /* CategoriesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF179AC41FC1B59900F713DA /* CategoriesCell.xib */; };
 		CF179AC91FC3124A00F713DA /* ItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CF179AC81FC3124A00F713DA /* ItemModel.m */; };
 		CF179ACC1FC3235700F713DA /* UserInfoWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF179ACB1FC3235700F713DA /* UserInfoWebViewController.m */; };
+		CF179ACF1FC410A100F713DA /* UIBarButtonItem+item.m in Sources */ = {isa = PBXBuildFile; fileRef = CF179ACE1FC410A100F713DA /* UIBarButtonItem+item.m */; };
 		CF9F37701FBC22F10034B96A /* UIImage+SYDImage.h in Sources */ = {isa = PBXBuildFile; fileRef = CF9F376E1FBC20F30034B96A /* UIImage+SYDImage.h */; };
 		CF9F37711FBC22F10034B96A /* UIImage+SYDImage.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9F376D1FBC20F30034B96A /* UIImage+SYDImage.m */; };
 		CFAA37171FB975C200D0F6C1 /* PictureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAA37161FB975C200D0F6C1 /* PictureModel.m */; };
@@ -99,6 +100,8 @@
 		CF179AC81FC3124A00F713DA /* ItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemModel.m; sourceTree = "<group>"; };
 		CF179ACA1FC3235700F713DA /* UserInfoWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoWebViewController.h; sourceTree = "<group>"; };
 		CF179ACB1FC3235700F713DA /* UserInfoWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoWebViewController.m; sourceTree = "<group>"; };
+		CF179ACD1FC410A100F713DA /* UIBarButtonItem+item.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+item.h"; sourceTree = "<group>"; };
+		CF179ACE1FC410A100F713DA /* UIBarButtonItem+item.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+item.m"; sourceTree = "<group>"; };
 		CF9F376D1FBC20F30034B96A /* UIImage+SYDImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "UIImage+SYDImage.m"; path = "../../../../../baisibudejie/budejie/budejie/Class/Other/UIImage+SYDImage.m"; sourceTree = "<group>"; };
 		CF9F376E1FBC20F30034B96A /* UIImage+SYDImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIImage+SYDImage.h"; path = "../../../../../baisibudejie/budejie/budejie/Class/Other/UIImage+SYDImage.h"; sourceTree = "<group>"; };
 		CF9F37721FBC243B0034B96A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -391,6 +394,8 @@
 				CF9F376D1FBC20F30034B96A /* UIImage+SYDImage.m */,
 				CFAA37291FBAC9AD00D0F6C1 /* UIView+frame.h */,
 				CFAA37281FBAC9AD00D0F6C1 /* UIView+frame.m */,
+				CF179ACD1FC410A100F713DA /* UIBarButtonItem+item.h */,
+				CF179ACE1FC410A100F713DA /* UIBarButtonItem+item.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -655,6 +660,7 @@
 				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Optional/ShareSDKConfigFile.bundle",
 				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/PlatformSDK/SinaWeiboSDK/WeiboSDK.bundle",
 				"${PODS_ROOT}/mob_sharesdk/SDK/ShareSDK/Support/Optional/ShareSDKUI.bundle",
+				"$(SRCROOT)/myfile",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -710,6 +716,7 @@
 				CF179AC51FC1B59900F713DA /* CategoriesCell.m in Sources */,
 				CFAA37271FBAC94100D0F6C1 /* SYDButton.m in Sources */,
 				CFFC18411FB434E0008D853E /* SYDConst.m in Sources */,
+				CF179ACF1FC410A100F713DA /* UIBarButtonItem+item.m in Sources */,
 				CFFC18301FB30150008D853E /* HomeViewController.m in Sources */,
 				CFAA37311FBB004200D0F6C1 /* TitleCell.m in Sources */,
 				CF179AA41FBC734200F713DA /* GoodsViewController.m in Sources */,
@@ -814,7 +821,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -863,7 +870,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -879,6 +886,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BBKVX2RMVD;
 				INFOPLIST_FILE = myShop/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xidian.myShop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -896,6 +904,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BBKVX2RMVD;
 				INFOPLIST_FILE = myShop/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xidian.myShop;
 				PRODUCT_NAME = "$(TARGET_NAME)";

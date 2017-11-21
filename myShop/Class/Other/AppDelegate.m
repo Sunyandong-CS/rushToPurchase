@@ -38,6 +38,11 @@
     // 4.集成分享功能
     [self setUpShareSDK];
     
+    // 5. 进行全局设置scrollView的刷新等问题
+    if (@available(iOS 11.0, *)){
+        [[UICollectionView appearance] setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
+    }
+    
     return YES;
 }
 

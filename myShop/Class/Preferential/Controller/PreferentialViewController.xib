@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -50,15 +50,14 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="jvU-cd-xgh" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="CJR-Cn-7sf"/>
-                <constraint firstItem="HUE-Zf-Ypp" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="I5i-e5-qhN"/>
+                <constraint firstItem="jvU-cd-xgh" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="CJR-Cn-7sf"/>
+                <constraint firstItem="HUE-Zf-Ypp" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="I5i-e5-qhN"/>
                 <constraint firstItem="jvU-cd-xgh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="PfS-6t-wcb"/>
-                <constraint firstItem="jvU-cd-xgh" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Rea-4M-DDS"/>
+                <constraint firstItem="jvU-cd-xgh" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="Rea-4M-DDS"/>
                 <constraint firstItem="jvU-cd-xgh" firstAttribute="leading" secondItem="HUE-Zf-Ypp" secondAttribute="trailing" id="Vuu-ri-uA6"/>
                 <constraint firstItem="HUE-Zf-Ypp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="bZY-O8-JKs"/>
-                <constraint firstItem="HUE-Zf-Ypp" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="wUa-nt-CWR"/>
+                <constraint firstItem="HUE-Zf-Ypp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="wUa-nt-CWR"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="25.5" y="52.5"/>
         </view>
     </objects>

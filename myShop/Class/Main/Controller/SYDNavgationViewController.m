@@ -7,6 +7,7 @@
 //
 
 #import "SYDNavgationViewController.h"
+#import "UIBarButtonItem+item.h"
 
 @interface SYDNavgationViewController ()<UIGestureRecognizerDelegate>
 
@@ -41,8 +42,17 @@
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     if (self.childViewControllers.count > 0) {
         viewController.hidesBottomBarWhenPushed = YES;
+        
+        // 修改返回按钮样式
+        // 恢复滑动返回功能：？ 因为覆盖了系统的按钮 ---》手势失效  :代理设置了不能滑动返回，需要设置代理判断什么时候滑动返回
+        viewController.hidesBottomBarWhenPushed = YES;
+        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem navBackButtonWithImage:@"navigationButtonReturn" AndHighlightImage:@"navigationButtonReturnClick" target:self action:@selector(back) title:@"返回"];
     }
     [super pushViewController:viewController animated:animated];
+}
+
+- (void)back {
+    [self popViewControllerAnimated:YES];
 }
 
 #pragma mark UIGestureRecognizerDelegate

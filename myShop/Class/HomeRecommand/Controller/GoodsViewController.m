@@ -33,7 +33,13 @@ static NSString * const reuseIdentifier = @"GoodsViewCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // 顶部偏移适配ios11
+    if (@available(iOS 11.0, *)){
+       self.collectionView.contentInset = UIEdgeInsetsMake(NavbarH, 0, 0, 0);
+    }
+    
     self.collectionView.backgroundColor = [UIColor lightGrayColor];
+    
     // 1.添加上拉刷新
     self.collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadCollectionViewData)];
     // 加载数据

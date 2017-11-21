@@ -24,7 +24,7 @@ static NSString * const GoodsPicture = @"GoodsPictureCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.navigationItem.title = @"详细信息";
     // 注册cell
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([GoodsDetailCell class]) bundle:nil] forCellReuseIdentifier:GoodsDetail];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([GoodsPictureCell class]) bundle:nil] forCellReuseIdentifier:GoodsPicture];

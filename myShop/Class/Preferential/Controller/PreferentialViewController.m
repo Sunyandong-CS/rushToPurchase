@@ -43,6 +43,7 @@ static NSString * const goodsCellId = @"goodsCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.navigationItem.title = @"优惠精选";
     // 1.加载tableview和collectionView
     [self setUpTableViewAndCollectionView];
@@ -57,7 +58,7 @@ static NSString * const goodsCellId = @"goodsCell";
     self.tableView.backgroundColor = [UIColor grayColor];
     self.collectionView.backgroundColor = [UIColor grayColor];
     
-    self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    self.collectionView.contentInset = UIEdgeInsetsMake(NavbarH, 0, 0, 0);
     
     // 注册cell
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([CategoriesCell class]) bundle:nil] forCellReuseIdentifier:categoriesCellId];

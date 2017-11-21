@@ -68,6 +68,8 @@
  移除通知
  */
 - (void)dealloc {
+    
+    [SVProgressHUD dismiss];
     [self.webView removeObserver:self forKeyPath:@"estimatedProgress"];
 }
 

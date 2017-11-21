@@ -15,7 +15,7 @@
 - (NSInteger)cellHeight {
     if (_cellHeight == 0) {
         // 图片的高度
-        _cellHeight += [UIScreen mainScreen].bounds.size.width - SYDMargin;
+        _cellHeight += [UIScreen mainScreen].bounds.size.width ;
         
         // 价格标签的高度
         _cellHeight += 25 + SYDMargin;
