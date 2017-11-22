@@ -6,3 +6,8 @@
 
 ![](https://github.com/Sunyandong-CS/rushToPurchase/raw/master/raw/FPS.png)  
 
+#### 功能演示：(图片滚动、tableview/collectionView/WKWebView):
+
+![](https://github.com/Sunyandong-CS/rushToPurchase/raw/master/screenshot/preview.gif) 
+
+
