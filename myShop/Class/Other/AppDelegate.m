@@ -13,6 +13,7 @@
 #import <TencentOpenAPI/QQApiInterface.h>
 #import <WXApi.h>
 #import <WeiboSDK.h>
+#import <JPFPSStatus/JPFPSStatus.h>
 #import "AppDelegate.h"
 
 #import "SYDTabViewController.h"
@@ -42,6 +43,12 @@
     if (@available(iOS 11.0, *)){
         [[UICollectionView appearance] setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
     }
+    
+    // 6.debug模式下状态栏显示fps
+    #if defined(DEBUG)||defined(_DEBUG)
+        [[JPFPSStatus sharedInstance] open];
+    #endif
+    
     
     return YES;
 }
@@ -85,8 +92,8 @@
          {
              case SSDKPlatformTypeSinaWeibo:
                  //设置新浪微博应用信息,其中authType设置为使用SSO＋Web形式授权
-                 [appInfo SSDKSetupSinaWeiboByAppKey:@"568898243"
-                                           appSecret:@"38a4f8204cc784f81f9f0daaf31e02e3"
+                 [appInfo SSDKSetupSinaWeiboByAppKey:@"4053609662"
+                                           appSecret:@"8c4fb772d64cb703f0d052a3346c9508"
                                          redirectUri:@"http://www.sharesdk.cn"
                                             authType:SSDKAuthTypeBoth];
                  break;

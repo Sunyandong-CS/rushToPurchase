@@ -48,7 +48,7 @@ static NSString * const goodsCellId = @"goodsCell";
     // 1.加载tableview和collectionView
     [self setUpTableViewAndCollectionView];
     
-    [self loadCategoriesViewData];
+
 }
 #pragma mark 初始化
 /**
@@ -68,6 +68,8 @@ static NSString * const goodsCellId = @"goodsCell";
     
     // 添加下拉刷新
     self.collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadCollectionViewData)];
+    // 加载数据
+    [self loadCategoriesViewData];
     
 }
 
@@ -78,6 +80,7 @@ static NSString * const goodsCellId = @"goodsCell";
  */
 - (void)loadCategoriesViewData {
     // 加载左边数据时，禁止屏幕触摸事件
+    
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     // 创建请求对象
     AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
@@ -119,7 +122,12 @@ static NSString * const goodsCellId = @"goodsCell";
     }
     // 设置请求参数
     NSMutableDictionary *paramerters = [NSMutableDictionary dictionary];
-    paramerters[@"favoritesId"] = self.categoriesArr[self.tableView.indexPathForSelectedRow.row].FavoritesId;
+    // 判断数组是否为空
+    if (self.categoriesArr.count) {
+        paramerters[@"favoritesId"] = self.categoriesArr[self.tableView.indexPathForSelectedRow.row].FavoritesId;
+    } else {
+        paramerters[@"favoritesId"] = @"";
+    }
     paramerters[@"pageNo"] = [NSString stringWithFormat:@"%li",(long)self.pageNo];
     
     // 发送请求
