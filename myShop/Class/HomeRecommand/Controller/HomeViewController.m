@@ -11,18 +11,19 @@
 /********************************/
 #import "HomeViewController.h"
 #import "SYDConst.h"
-#import <AFNetworking.h>
 #import <SDCycleScrollView.h>
 #import "PictureModel.h"
 #import "GoodsViewCell.h"
 #import "CategoryModel.h"
 #import "MenuView.h"
+#import <SVProgressHUD.h>
 #import "TitleCell.h"
 #import "GoodsModel.h"
 #import "GoodsViewController.h"
 #import "GoodsDetailViewController.h"
 #import <MJExtension/MJExtension.h>
 #import <MJRefresh/MJRefresh.h>
+#import "NetWorkTools.h"
 
 #define ScreenW [UIScreen mainScreen].bounds.size.width
 #define ScreenH [UIScreen mainScreen].bounds.size.height
@@ -48,7 +49,7 @@ static NSString * const CollectionCellID = @"cell";
 /* 保存顶部两个视图的View */
 @property (nonatomic, strong) UIView *contentV;
 /* 请求管理者对象 */
-@property (nonatomic, strong) AFHTTPSessionManager *manager;
+//@property (nonatomic, strong) AFHTTPSessionManager *manager;
 /* 加载页数记录器 */
 @property (nonatomic, assign) NSInteger pageNo;
 @end
@@ -234,42 +235,102 @@ static NSString * const CollectionCellID = @"cell";
 }
 
 #pragma mark 网络请求
+//- (void)loadCycleScrollViewData {
+//    // 创建请求对象
+//    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+//    // 设置请求参数
+//    NSMutableDictionary *paramerters = [NSMutableDictionary dictionary];
+//    paramerters[@"favoritesId"] = @"2056439";
+//    paramerters[@"pageNo"] = @"1";
+//    paramerters[@"pageSize"] = @"5";
+//
+//    // 发送请求
+//    [mgr GET:Products_URL parameters:paramerters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//
+//        // 保存请求数据 --- 字典数组转模型数组
+//        NSMutableArray *itemArr = [PictureModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+//        self.pictureArr  = itemArr;
+//
+//
+//        NSMutableArray *urlArr = [NSMutableArray array];
+//        if (itemArr.count) {
+//            for (PictureModel *model in itemArr) {
+//                NSString *url =  model.PictUrl;
+//                [urlArr addObject:url];
+//            }
+//        }
+//        self.cycleScrollView.imageURLStringsGroup = urlArr;
+//
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        // 设置请求数据失败的提示
+//    }];
+//}
+
 - (void)loadCycleScrollViewData {
     // 创建请求对象
-    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    NetWorkTools *tools = [NetWorkTools shareNetworkTools];
     // 设置请求参数
     NSMutableDictionary *paramerters = [NSMutableDictionary dictionary];
     paramerters[@"favoritesId"] = @"2056439";
     paramerters[@"pageNo"] = @"1";
     paramerters[@"pageSize"] = @"5";
     
+    
     // 发送请求
-    [mgr GET:Products_URL parameters:paramerters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        // 保存请求数据 --- 字典数组转模型数组
-        NSMutableArray *itemArr = [PictureModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-        self.pictureArr  = itemArr;
-        
-        
-        NSMutableArray *urlArr = [NSMutableArray array];
-        if (itemArr.count) {
-            for (PictureModel *model in itemArr) {
-                NSString *url =  model.PictUrl;
-                [urlArr addObject:url];
+    [tools requestWithMethod:GET urlString:Products_URL parameters:paramerters andFinished:^(id response, NSError *error) {
+        if (error != nil) {
+            // 设置请求数据失败的提示
+            [SVProgressHUD showErrorWithStatus:@"加载数据失败！请检查网络连接状况.."];
+            return ;
+        } else {
+            // 保存请求数据 --- 字典数组转模型数组
+            NSMutableArray *itemArr = [PictureModel mj_objectArrayWithKeyValuesArray:response[@"data"]];
+            self.pictureArr  = itemArr;
+            
+            NSMutableArray *urlArr = [NSMutableArray array];
+            if (itemArr.count) {
+                for (PictureModel *model in itemArr) {
+                    NSString *url =  model.PictUrl;
+                    [urlArr addObject:url];
+                }
             }
+            self.cycleScrollView.imageURLStringsGroup = urlArr;
         }
-        self.cycleScrollView.imageURLStringsGroup = urlArr;
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        // 设置请求数据失败的提示
     }];
 }
-
-
+//- (void)loadCollectionViewData {
+//
+//    // 解决连续下拉共存的方法，取消之前的任务
+//    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+//
+//    if (!self.pageNo) {
+//        self.pageNo = 1;
+//    }
+//    // 设置请求参数
+//    NSMutableDictionary *paramerters = [NSMutableDictionary dictionary];
+//    paramerters[@"favoritesId"] = @"2056439";
+//    paramerters[@"pageNo"] = [NSString stringWithFormat:@"%li",(long)self.pageNo];
+//    paramerters[@"pageSize"] = @"20";
+//
+//    // 发送请求
+//    [self.manager GET:Products_URL parameters:paramerters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//
+//        // 保存请求数据 --- 字典数组转模型数组
+//        NSMutableArray *itemArr = [GoodsModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+//        [self.goodsArr addObjectsFromArray:itemArr];
+//
+//        // 刷新数据
+//        [self.collectionView reloadData];
+//        self.pageNo ++;
+//        // 结束上拉刷新
+//        [self.collectionView.mj_footer endRefreshing];
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        // 设置请求数据失败的提示
+//    }];
+//}
 - (void)loadCollectionViewData {
     
-    // 解决连续下拉共存的方法，取消之前的任务
-    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    NetWorkTools *tools = [NetWorkTools shareNetworkTools];
     
     if (!self.pageNo) {
         self.pageNo = 1;
@@ -281,22 +342,26 @@ static NSString * const CollectionCellID = @"cell";
     paramerters[@"pageSize"] = @"20";
     
     // 发送请求
-    [self.manager GET:Products_URL parameters:paramerters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        // 保存请求数据 --- 字典数组转模型数组
-        NSMutableArray *itemArr = [GoodsModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-        [self.goodsArr addObjectsFromArray:itemArr];
-        
-        // 刷新数据
-        [self.collectionView reloadData];
-        self.pageNo ++;
-        // 结束上拉刷新
-        [self.collectionView.mj_footer endRefreshing];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        // 设置请求数据失败的提示
+    [tools requestWithMethod:GET urlString:Products_URL parameters:paramerters andFinished:^(id response, NSError *error) {
+        if (error != nil) {
+            // 设置请求数据失败的提示
+            [SVProgressHUD showErrorWithStatus:@"加载数据失败！请检查网络连接状况.."];
+            // 结束上拉刷新
+            [self.collectionView.mj_footer endRefreshing];
+            return ;
+        } else {
+            // 保存请求数据 --- 字典数组转模型数组
+            NSMutableArray *itemArr = [GoodsModel mj_objectArrayWithKeyValuesArray:response[@"data"]];
+            [self.goodsArr addObjectsFromArray:itemArr];
+            
+            // 刷新数据
+            [self.collectionView reloadData];
+            self.pageNo ++;
+            // 结束上拉刷新
+            [self.collectionView.mj_footer endRefreshing];
+        }
     }];
 }
-
 
 #pragma mark 懒加载
 - (NSMutableArray *)pictureArr {
@@ -313,12 +378,12 @@ static NSString * const CollectionCellID = @"cell";
     return _goodsArr;
 }
 
-- (AFHTTPSessionManager *)manager {
-    if (_manager == nil) {
-        _manager = [AFHTTPSessionManager manager];
-    }
-    return  _manager;
-}
+//- (AFHTTPSessionManager *)manager {
+//    if (_manager == nil) {
+//        _manager = [AFHTTPSessionManager manager];
+//    }
+//    return  _manager;
+//}
 
 #pragma mark collectionViewDatasource
 

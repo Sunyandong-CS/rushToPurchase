@@ -9,18 +9,18 @@
 #import "GoodsViewController.h"
 #import "GoodsViewCell.h"
 #import "SYDConst.h"
+#import "NetWorkTools.h"
 #import <MJRefresh.h>
 #import <MJExtension.h>
 #import "GoodsViewCell.h"
 #import "GoodsModel.h"
 #import "GoodsDetailViewController.h"
-#import <AFNetworking.h>
 #import <SVProgressHUD.h>
 #define ScreenW [UIScreen mainScreen].bounds.size.width
 
 @interface GoodsViewController ()<UICollectionViewDelegateFlowLayout>
 /* 请求管理者 */
-@property (nonatomic, strong) AFHTTPSessionManager *manager;
+//@property (nonatomic, strong) AFHTTPSessionManager *manager;
 /* 下一次要请求的页面 */
 @property (nonatomic, assign) NSInteger pageNo;
 /* 保存商品的数组 */
@@ -49,38 +49,69 @@ static NSString * const reuseIdentifier = @"GoodsViewCell";
     [self.collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([GoodsViewCell class]) bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
     
 }
+//- (void)loadCollectionViewData {
+//
+//    // 解决连续下拉共存的方法，取消之前的任务
+//    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+//
+//    if (!self.pageNo) {
+//        self.pageNo = 1;
+//    }
+//    // 设置请求参数
+//    NSMutableDictionary *paramerters = [NSMutableDictionary dictionary];
+//    paramerters[@"favoritesId"] = self.favoritesId;
+//    paramerters[@"pageNo"] = @"1";
+//
+//    // 发送请求
+//    [self.manager GET:Products_URL parameters:paramerters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//
+//        // 保存请求数据 --- 字典数组转模型数组
+//        NSMutableArray *itemArr = [GoodsModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+//        [self.goodsArr addObjectsFromArray:itemArr];
+//
+//        // 刷新数据
+//        [self.collectionView reloadData];
+//        self.pageNo ++;
+//        // 结束上拉刷新
+//        [self.collectionView.mj_footer endRefreshing];
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        // 设置请求数据失败的提示
+//        [SVProgressHUD showErrorWithStatus:@"加载数据失败！请检查网络连接状况.."];
+//
+//    }];
+//}
 - (void)loadCollectionViewData {
     
-    // 解决连续下拉共存的方法，取消之前的任务
-    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    NetWorkTools *tools = [NetWorkTools shareNetworkTools];
     
     if (!self.pageNo) {
         self.pageNo = 1;
     }
+    
     // 设置请求参数
     NSMutableDictionary *paramerters = [NSMutableDictionary dictionary];
     paramerters[@"favoritesId"] = self.favoritesId;
     paramerters[@"pageNo"] = @"1";
     
-    // 发送请求
-    [self.manager GET:Products_URL parameters:paramerters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        // 保存请求数据 --- 字典数组转模型数组
-        NSMutableArray *itemArr = [GoodsModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-        [self.goodsArr addObjectsFromArray:itemArr];
-        
-        // 刷新数据
-        [self.collectionView reloadData];
-        self.pageNo ++;
-        // 结束上拉刷新
-        [self.collectionView.mj_footer endRefreshing];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        // 设置请求数据失败的提示
-        [SVProgressHUD showErrorWithStatus:@"加载数据失败！请检查网络连接状况.."];
-        
+    [tools requestWithMethod:GET urlString:Products_URL parameters:paramerters andFinished:^(id response, NSError *error) {
+        if (error != nil) {
+            // 设置请求数据失败的提示
+            [SVProgressHUD showErrorWithStatus:@"加载数据失败！请检查网络连接状况.."];
+            [self.collectionView.mj_footer endRefreshing];
+            return ;
+        } else {
+            // 保存请求数据 --- 字典数组转模型数组
+            NSMutableArray *itemArr = [GoodsModel mj_objectArrayWithKeyValuesArray:response[@"data"]];
+            [self.goodsArr addObjectsFromArray:itemArr];
+            
+            // 刷新数据
+            [self.collectionView reloadData];
+            self.pageNo ++;
+            // 结束上拉刷新
+            [self.collectionView.mj_footer endRefreshing];
+        }
     }];
 }
-
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -134,10 +165,10 @@ static NSString * const reuseIdentifier = @"GoodsViewCell";
     }
     return _goodsArr;
 }
-- (AFHTTPSessionManager *)manager {
-    if (_manager == nil) {
-        _manager = [AFHTTPSessionManager manager];
-    }
-    return  _manager;
-}
+//- (AFHTTPSessionManager *)manager {
+//    if (_manager == nil) {
+//        _manager = [AFHTTPSessionManager manager];
+//    }
+//    return  _manager;
+//}
 @end

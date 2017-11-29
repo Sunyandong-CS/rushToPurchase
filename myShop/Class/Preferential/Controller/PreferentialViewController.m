@@ -9,7 +9,7 @@
 #import "PreferentialViewController.h"
 #import "CategoriesCell.h"
 #import "GoodsViewCell.h"
-#import <AFNetworking.h>
+//#import <AFNetworking.h>
 #import <MJRefresh.h>
 #import "GoodsModel.h"
 #import "GoodsDetailViewController.h"
@@ -17,6 +17,7 @@
 #import <MJExtension.h>
 #import <SVProgressHUD.h>
 #import "CategoryModel.h"
+#import "NetWorkTools.h"
 
 #define ScreenW [UIScreen mainScreen].bounds.size.width
 
@@ -27,7 +28,7 @@ static NSString * const goodsCellId = @"goodsCell";
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 /* 请求管理者对象 */
-@property (nonatomic, strong) AFHTTPSessionManager *manager;
+//@property (nonatomic, strong) AFHTTPSessionManager *manager;
 
 /* 保存左边推荐栏的数组 */
 @property (nonatomic, strong) NSMutableArray<CategoryModel *> *categoriesArr;
@@ -73,7 +74,7 @@ static NSString * const goodsCellId = @"goodsCell";
     
 }
 
-#pragma 数据请求
+#pragma mark ---- 数据请求
 
 /**
  加载左边选项卡数据
@@ -83,39 +84,36 @@ static NSString * const goodsCellId = @"goodsCell";
     
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     // 创建请求对象
-    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    NetWorkTools *tools = [NetWorkTools shareNetworkTools];
     
     // 设置请求参数
     NSMutableDictionary *paramerters = [NSMutableDictionary dictionary];
     paramerters[@"appTag"] = @"dress";
     // 发送请求
-    [mgr GET:Categories_URL parameters:paramerters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        // 保存请求数据 --- 字典数组转模型数组
-        NSMutableArray<CategoryModel *> *itemArr = [CategoryModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-        self.categoriesArr = itemArr;
-        [self.tableView reloadData];
-        [SVProgressHUD dismiss];
-        // 默认选择第一个
-        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
-        [self loadCollectionViewData]; // 加载collectionViewdata
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        // 设置请求数据失败的提示
+    [tools requestWithMethod:GET urlString:Categories_URL parameters:paramerters andFinished:^(id response, NSError *error) {
         if (error != nil) {
             [SVProgressHUD showErrorWithStatus:@"加载推荐信息失败!"];
             return;
+        } else {
+            // 保存请求数据 --- 字典数组转模型数组
+            NSMutableArray<CategoryModel *> *itemArr = [CategoryModel mj_objectArrayWithKeyValuesArray:response[@"data"]];
+            self.categoriesArr = itemArr;
+            [self.tableView reloadData];
+            [SVProgressHUD dismiss];
+            // 默认选择第一个
+            [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
+            [self loadCollectionViewData]; // 加载collectionViewdata
+            
         }
     }];
 }
 
 /**
-  加载右边collectionView的数据
+ 加载右边collectionView的数据
  */
 - (void)loadCollectionViewData {
-    
-    // 解决取消之前的任务
-    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    // 创建请求对象
+    NetWorkTools *tools = [NetWorkTools shareNetworkTools];
     
     if (!self.pageNo) {
         self.pageNo = 1;
@@ -129,23 +127,25 @@ static NSString * const goodsCellId = @"goodsCell";
         paramerters[@"favoritesId"] = @"";
     }
     paramerters[@"pageNo"] = [NSString stringWithFormat:@"%li",(long)self.pageNo];
-    
     // 发送请求
-    [self.manager GET:Products_URL parameters:paramerters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        // 保存请求数据 --- 字典数组转模型数组
-        NSMutableArray *itemArr = [GoodsModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-        
-        [self.categoriesArr[self.tableView.indexPathForSelectedRow.row].goodsArr addObjectsFromArray:itemArr];
-        // 刷新数据
-        [self.collectionView reloadData];
-//        self.collectionView.contentOffset = CGPointMake(0, -NavbarH); // collectionView回滚到顶部
-        self.pageNo ++;
-        // 结束上拉刷新
-        [self.collectionView.mj_footer endRefreshing];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        // 设置请求数据失败的提示
-        [SVProgressHUD showErrorWithStatus:@"加载数据失败！请检查网络连接状况.."];
+    [tools requestWithMethod:GET urlString:Products_URL parameters:paramerters andFinished:^(id response, NSError *error) {
+        if (error != nil) {
+            [SVProgressHUD showErrorWithStatus:@"加载推荐信息失败!"];
+            // 结束上拉刷新
+            [self.collectionView.mj_footer endRefreshing];
+            return;
+        } else {
+            // 保存请求数据 --- 字典数组转模型数组
+            NSMutableArray *itemArr = [GoodsModel mj_objectArrayWithKeyValuesArray:response[@"data"]];
+            
+            [self.categoriesArr[self.tableView.indexPathForSelectedRow.row].goodsArr addObjectsFromArray:itemArr];
+            // 刷新数据
+            [self.collectionView reloadData];
+            //        self.collectionView.contentOffset = CGPointMake(0, -NavbarH); // collectionView回滚到顶部
+            self.pageNo ++;
+            // 结束上拉刷新
+            [self.collectionView.mj_footer endRefreshing];
+        }
     }];
 }
 
@@ -153,9 +153,8 @@ static NSString * const goodsCellId = @"goodsCell";
  加载右边collectionView的数据
  */
 - (void)loadCollectionNewData {
-    
-    // 解决取消之前的任务
-    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    // 创建请求对象
+    NetWorkTools *tools = [NetWorkTools shareNetworkTools];
     
     if (!self.pageNo) {
         self.pageNo = 1;
@@ -164,22 +163,24 @@ static NSString * const goodsCellId = @"goodsCell";
     NSMutableDictionary *paramerters = [NSMutableDictionary dictionary];
     paramerters[@"favoritesId"] = self.categoriesArr[self.tableView.indexPathForSelectedRow.row].FavoritesId;
     paramerters[@"pageNo"] = @"1";
-    
     // 发送请求
-    [self.manager GET:Products_URL parameters:paramerters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        // 保存请求数据 --- 字典数组转模型数组
-        NSMutableArray *itemArr = [GoodsModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-        
-        self.categoriesArr[self.tableView.indexPathForSelectedRow.row].goodsArr = itemArr;
-        // 刷新数据
-        [self.collectionView reloadData];
-        self.pageNo ++;
-        // 结束上拉刷新
-        [self.collectionView.mj_header endRefreshing];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        // 设置请求数据失败的提示
-        [SVProgressHUD showErrorWithStatus:@"加载数据失败！请检查网络连接状况.."];
+    [tools requestWithMethod:GET urlString:Products_URL parameters:paramerters andFinished:^(id response, NSError *error) {
+        if (error != nil) {
+            [SVProgressHUD showErrorWithStatus:@"加载推荐信息失败!"];
+            // 结束下拉刷新
+            [self.collectionView.mj_header endRefreshing];
+            return;
+        } else {
+            // 保存请求数据 --- 字典数组转模型数组
+            NSMutableArray *itemArr = [GoodsModel mj_objectArrayWithKeyValuesArray:response[@"data"]];
+            
+            self.categoriesArr[self.tableView.indexPathForSelectedRow.row].goodsArr = itemArr;
+            // 刷新数据
+            [self.collectionView reloadData];
+            self.pageNo ++;
+            // 结束下拉刷新
+            [self.collectionView.mj_header endRefreshing];
+        }
     }];
 }
 
@@ -262,10 +263,126 @@ static NSString * const goodsCellId = @"goodsCell";
 }
 
 
-- (AFHTTPSessionManager *)manager {
-    if (_manager == nil) {
-        _manager = [AFHTTPSessionManager manager];
-    }
-    return _manager;
-}
+#pragma mark -------- AFN 未封装前代码
+
+//- (AFHTTPSessionManager *)manager {
+//    if (_manager == nil) {
+//        _manager = [AFHTTPSessionManager manager];
+//    }
+//    return _manager;
+//}
+
+
+
+///**
+// 加载左边选项卡数据
+// */
+//- (void)loadCategoriesViewData {
+//    // 加载左边数据时，禁止屏幕触摸事件
+//
+//    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
+//    // 创建请求对象
+//    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+//
+//    // 设置请求参数
+//    NSMutableDictionary *paramerters = [NSMutableDictionary dictionary];
+//    paramerters[@"appTag"] = @"dress";
+//    // 发送请求
+//    [mgr GET:Categories_URL parameters:paramerters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//
+//        // 保存请求数据 --- 字典数组转模型数组
+//        NSMutableArray<CategoryModel *> *itemArr = [CategoryModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+//        self.categoriesArr = itemArr;
+//        [self.tableView reloadData];
+//        [SVProgressHUD dismiss];
+//        // 默认选择第一个
+//        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
+//        [self loadCollectionViewData]; // 加载collectionViewdata
+//
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        // 设置请求数据失败的提示
+//        if (error != nil) {
+//            [SVProgressHUD showErrorWithStatus:@"加载推荐信息失败!"];
+//            return;
+//        }
+//    }];
+//}
+//
+///**
+// 加载右边collectionView的数据
+// */
+//- (void)loadCollectionViewData {
+//
+//    // 解决取消之前的任务
+//    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+//
+//    if (!self.pageNo) {
+//        self.pageNo = 1;
+//    }
+//    // 设置请求参数
+//    NSMutableDictionary *paramerters = [NSMutableDictionary dictionary];
+//    // 判断数组是否为空
+//    if (self.categoriesArr.count) {
+//        paramerters[@"favoritesId"] = self.categoriesArr[self.tableView.indexPathForSelectedRow.row].FavoritesId;
+//    } else {
+//        paramerters[@"favoritesId"] = @"";
+//    }
+//    paramerters[@"pageNo"] = [NSString stringWithFormat:@"%li",(long)self.pageNo];
+//
+//    // 发送请求
+//    [self.manager GET:Products_URL parameters:paramerters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//
+//        // 保存请求数据 --- 字典数组转模型数组
+//        NSMutableArray *itemArr = [GoodsModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+//
+//        [self.categoriesArr[self.tableView.indexPathForSelectedRow.row].goodsArr addObjectsFromArray:itemArr];
+//        // 刷新数据
+//        [self.collectionView reloadData];
+//        //        self.collectionView.contentOffset = CGPointMake(0, -NavbarH); // collectionView回滚到顶部
+//        self.pageNo ++;
+//        // 结束上拉刷新
+//        [self.collectionView.mj_footer endRefreshing];
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        // 设置请求数据失败的提示
+//        [SVProgressHUD showErrorWithStatus:@"加载数据失败！请检查网络连接状况.."];
+//    }];
+//}
+//
+///**
+// 加载右边collectionView的数据
+// */
+//- (void)loadCollectionNewData {
+//
+//    // 解决取消之前的任务
+//    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+//
+//    if (!self.pageNo) {
+//        self.pageNo = 1;
+//    }
+//    // 设置请求参数
+//    NSMutableDictionary *paramerters = [NSMutableDictionary dictionary];
+//    paramerters[@"favoritesId"] = self.categoriesArr[self.tableView.indexPathForSelectedRow.row].FavoritesId;
+//    paramerters[@"pageNo"] = @"1";
+//
+//    // 发送请求
+//    [self.manager GET:Products_URL parameters:paramerters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//
+//        // 保存请求数据 --- 字典数组转模型数组
+//        NSMutableArray *itemArr = [GoodsModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+//
+//        self.categoriesArr[self.tableView.indexPathForSelectedRow.row].goodsArr = itemArr;
+//        // 刷新数据
+//        [self.collectionView reloadData];
+//        self.pageNo ++;
+//        // 结束上拉刷新
+//        [self.collectionView.mj_header endRefreshing];
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        // 设置请求数据失败的提示
+//        [SVProgressHUD showErrorWithStatus:@"加载数据失败！请检查网络连接状况.."];
+//    }];
+//}
+//
+//
+//
 @end
+

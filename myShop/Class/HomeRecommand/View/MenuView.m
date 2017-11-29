@@ -8,12 +8,14 @@
 
 #import "MenuView.h"
 #import "SYDButton.h"
-#import <AFNetworking.h>
+//#import <AFNetworking.h>
+#import "NetWorkTools.h"
 #import "UIView+frame.h"
 #import <UIImageView+WebCache.h>
 #import "SYDConst.h"
 #import "UIImage+SYDImage.h"
 #import "CategoryModel.h"
+#import <SVProgressHUD.h>
 #import <MJExtension/MJExtension.h>
 
 @interface MenuView()
@@ -77,25 +79,50 @@
     [self reloadInputViews];
 }
 
+//- (void)loadCategoriesViewData {
+//    // 创建请求对象
+//    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+//
+//    // 设置请求参数
+//    NSMutableDictionary *paramerters = [NSMutableDictionary dictionary];
+//    paramerters[@"appTag"] = @"dress";
+//    // 发送请求
+//    [mgr GET:Categories_URL parameters:paramerters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//
+//        // 保存请求数据 --- 字典数组转模型数组
+//        NSMutableArray<CategoryModel *> *itemArr = [CategoryModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+//        self.categoriesArr = itemArr;
+//        [self addButton];
+//
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        // 设置请求数据失败的提示
+//        [SVProgressHUD showErrorWithStatus:@"加载数据失败！请检查网络连接状况.."];
+//    }];
+//}
+
 - (void)loadCategoriesViewData {
     // 创建请求对象
-    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    NetWorkTools *tools = [NetWorkTools shareNetworkTools];
     
     // 设置请求参数
     NSMutableDictionary *paramerters = [NSMutableDictionary dictionary];
     paramerters[@"appTag"] = @"dress";
     // 发送请求
-    [mgr GET:Categories_URL parameters:paramerters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        // 保存请求数据 --- 字典数组转模型数组
-        NSMutableArray<CategoryModel *> *itemArr = [CategoryModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
-        self.categoriesArr = itemArr;
-        [self addButton];
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        // 设置请求数据失败的提示
+    [tools requestWithMethod:GET urlString:Categories_URL parameters:paramerters andFinished:^(id response, NSError *error) {
+        if (error != nil) {
+            // 设置请求数据失败的提示
+            [SVProgressHUD showErrorWithStatus:@"加载数据失败！请检查网络连接状况.."];
+        } else {
+            // 保存请求数据 --- 字典数组转模型数组
+            NSMutableArray<CategoryModel *> *itemArr = [CategoryModel mj_objectArrayWithKeyValuesArray:response[@"data"]];
+            self.categoriesArr = itemArr;
+            [self addButton];
+        }
     }];
+
 }
+
+
 
 - (void)btnClick:(SYDButton *)button {
     

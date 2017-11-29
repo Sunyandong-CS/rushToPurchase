@@ -36,6 +36,7 @@
 		CFAA372D1FBACBD500D0F6C1 /* CategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAA372C1FBACBD500D0F6C1 /* CategoryModel.m */; };
 		CFAA37311FBB004200D0F6C1 /* TitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAA372F1FBB004200D0F6C1 /* TitleCell.m */; };
 		CFAA37321FBB004200D0F6C1 /* TitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFAA37301FBB004200D0F6C1 /* TitleCell.xib */; };
+		CFD2D92A1FCEA8CC00BC11C8 /* NetWorkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = CFD2D9291FCEA8CC00BC11C8 /* NetWorkTools.m */; };
 		CFFC17E51FB3005F008D853E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFFC17E31FB3005F008D853E /* LaunchScreen.storyboard */; };
 		CFFC17F21FB3005F008D853E /* myShopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFC17F11FB3005F008D853E /* myShopTests.m */; };
 		CFFC17FD1FB3005F008D853E /* myShopUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFC17FC1FB3005F008D853E /* myShopUITests.m */; };
@@ -121,6 +122,8 @@
 		CFAA372E1FBB004200D0F6C1 /* TitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TitleCell.h; sourceTree = "<group>"; };
 		CFAA372F1FBB004200D0F6C1 /* TitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TitleCell.m; sourceTree = "<group>"; };
 		CFAA37301FBB004200D0F6C1 /* TitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleCell.xib; sourceTree = "<group>"; };
+		CFD2D9281FCEA8CC00BC11C8 /* NetWorkTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkTools.h; sourceTree = "<group>"; };
+		CFD2D9291FCEA8CC00BC11C8 /* NetWorkTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkTools.m; sourceTree = "<group>"; };
 		CFFC17D51FB3005F008D853E /* myShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFFC17E41FB3005F008D853E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CFFC17E61FB3005F008D853E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -222,6 +225,15 @@
 				CF179ABA1FC14E3600F713DA /* GoodsPictureCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CFD2D9271FCEA88400BC11C8 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				CFD2D9281FCEA8CC00BC11C8 /* NetWorkTools.h */,
+				CFD2D9291FCEA8CC00BC11C8 /* NetWorkTools.m */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		CFFC17CC1FB3005F008D853E = {
@@ -378,10 +390,11 @@
 		CFFC18191FB3009E008D853E /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				CFFC181A1FB3009E008D853E /* AppDelegate.h */,
-				CFFC181B1FB3009E008D853E /* AppDelegate.m */,
+				CFD2D9271FCEA88400BC11C8 /* Tools */,
 				CFFC181C1FB3009E008D853E /* Category */,
 				CFFC181F1FB3009E008D853E /* Const */,
+				CFFC181A1FB3009E008D853E /* AppDelegate.h */,
+				CFFC181B1FB3009E008D853E /* AppDelegate.m */,
 				CFFC18201FB3009E008D853E /* main.m */,
 			);
 			path = Other;
@@ -702,6 +715,7 @@
 				CF179AA81FBC809A00F713DA /* GoodsModel.m in Sources */,
 				CFFC18391FB30186008D853E /* PreferentialViewController.m in Sources */,
 				CFFC183A1FB30186008D853E /* UserInfoController.h in Sources */,
+				CFD2D92A1FCEA8CC00BC11C8 /* NetWorkTools.m in Sources */,
 				CFFC183B1FB30186008D853E /* UserInfoController.m in Sources */,
 				CF179ABF1FC1648000F713DA /* GoodsWebViewController.m in Sources */,
 				CFFC18311FB30159008D853E /* SYDNavgationViewController.h in Sources */,
